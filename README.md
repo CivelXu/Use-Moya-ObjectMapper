@@ -56,7 +56,7 @@ extension API: TargetType {
 ```
 ## 2. Set your custom MoyaProvider
 
-your can configure your custom moya plugins thers
+your can configure your custom moya plugins here
 
 ```
 let NetworkProvider = MoyaProvider<API>(
