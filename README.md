@@ -129,8 +129,13 @@ struct NodeModel: Mappable {
 
 ## 4. Send a request and bind Model Type
 
+request Object
+```NetworkProvider.requestObject....```
+request Array Object
+```NetworkProvider.requestArray...```
+
 ```
-        NetworkRequestModels(
+        NetworkProvider.requestArray(
             .getNodeList,
             atKeyPath: "datas",
             model: NodeModel.self,
