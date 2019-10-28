@@ -94,7 +94,7 @@ struct BaseResponse: Mappable {
 
 ## 3.Configure Mappable Models file,
 
-you can use JSONEXport auto create, https://github.com/Ahmed-Ali/JSONExport
+you can use [JSONEXport](https://github.com/Ahmed-Ali/JSONExport) auto create
 ```
 import ObjectMapper
 
@@ -142,3 +142,6 @@ struct NodeModel: Mappable {
             debugPrint(error.localizedDescription)
         }
 ```
+
+Implementation refer to [Networking.swift](https://github.com/CivelXu/Moya-ObjectMapper/blob/master/MoyaPractice/MoyaPractice/Network/Networking.swift)
+
