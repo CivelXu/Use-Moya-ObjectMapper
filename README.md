@@ -1,4 +1,4 @@
-# Pritice to Use Moya and ObjectMapper
+# Pritice to use Moya and ObjectMapper
 
 ## 1. Set Custom API Info
 
