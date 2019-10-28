@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         view.backgroundColor = .white
 
-//        NetworkRequestModel(
+//        NetworkProvider.requestObject(
 //            .getNodeList,
 //            model: NodeModels.self,
 //            success: { (model) in
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
 //            debugPrint(error.localizedDescription)
 //        }
 
-//        NetworkRequestModel(
+//        NetworkProvider.requestObject(
 //            .getNotifies,
 //            atKeyPath: "separate_count",
 //            model: TestNum.self,
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
 //            debugPrint(error.localizedDescription)
 //        }
 
-//        NetworkRequestModels(
+//        NetworkProvider.requestArray(
 //            .getNodeList,
 //            atKeyPath: "datas",
 //            model: NodeModel.self,
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
 //            debugPrint(error.localizedDescription)
 //        }
 
-//        NetworkRequestModel(
+//        NetworkProvider.requestObject(
 //            .login(email: "xuxiwen@yuanben.org", password: "xxw100294"),
 //            model: UserModel.self,
 //            success: { (model) in
@@ -63,7 +63,7 @@ class ViewController: UIViewController {
         let timeInterval: TimeInterval = now.timeIntervalSince1970
         let timeStamp = Int(timeInterval) * 1000 + 1000
 
-        NetworkRequestModels(
+        NetworkProvider.requestArray(
             .getUserGroups(start: timeStamp, page: 0, type: 2),
             model: GroupModel.self,
             success: { groupModels in

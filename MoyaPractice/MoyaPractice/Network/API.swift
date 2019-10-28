@@ -8,11 +8,6 @@
 
 import Moya
 
-let NetworkTimeOut: Double = 30
-let NetworkSuccessCode: Int = 600
-let NetworkEmptyError: String =  "An unknown error occurred"
-let NetWorkBaseURLString = "https://iyuanben.com:30613"
-
 enum API {
     case getNodeList
     case login(email: String, password: String)
