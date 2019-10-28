@@ -1,6 +1,6 @@
 # Pritice to use Moya and ObjectMapper
 
-## 1. Set Custom API Info
+## 1. Set your custom API info
 
 ```
 enum API {
@@ -54,7 +54,9 @@ extension API: TargetType {
 }
 
 ```
-## 2. Set Custom MoyaProvider
+## 2. Set your custom MoyaProvider
+
+your can configure your custom moya plugins thers
 
 ```
 let NetworkProvider = MoyaProvider<API>(
@@ -65,7 +67,7 @@ let NetworkProvider = MoyaProvider<API>(
 )
 ```
 
-## 3. Custom your BaseResponse
+## 3. Custom your Server BaseResponse
 
 for example server base response
 ```
@@ -102,7 +104,7 @@ struct BaseResponse: Mappable {
 }
 ```
 
-## 4. Configure Mappable Models file
+## 4. Configure Your mappable model file
 
 you can use [JSONEXport](https://github.com/Ahmed-Ali/JSONExport) auto create
 ```
@@ -137,7 +139,7 @@ struct NodeModel: Mappable {
 
 ```
 
-## 5. Send a request and bind Model Type
+## 5. Send a request and bind model type
 
 request Object
 ```NetworkProvider.requestObject....```
