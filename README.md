@@ -92,7 +92,7 @@ struct BaseResponse: Mappable {
 }
 ```
 
-## 3. Configure Mappable Models file,
+## 3. Configure Mappable Models file
 
 you can use [JSONEXport](https://github.com/Ahmed-Ali/JSONExport) auto create
 ```
