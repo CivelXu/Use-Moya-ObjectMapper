@@ -1,4 +1,4 @@
-# Guide to Use Moya and ObjectMapper
+# Pritice to Use Moya and ObjectMapper
 
 ## 1. Set Custom API Info
 
@@ -92,7 +92,7 @@ struct BaseResponse: Mappable {
 }
 ```
 
-## 3.Configure Mappable Models file,
+## 3. Configure Mappable Models file,
 
 you can use [JSONEXport](https://github.com/Ahmed-Ali/JSONExport) auto create
 ```
@@ -127,7 +127,7 @@ struct NodeModel: Mappable {
 
 ```
 
-## 4.Send a request and bind Model Type
+## 4. Send a request and bind Model Type
 
 ```
         NetworkRequestModels(
