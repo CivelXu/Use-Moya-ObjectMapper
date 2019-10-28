@@ -54,8 +54,18 @@ extension API: TargetType {
 }
 
 ```
+## 2. Set Custom MoyaProvider
 
-## 2. Configure BaseResponse
+```
+let NetworkProvider = MoyaProvider<API>(
+    endpointClosure: NetworkEndpointClosure,
+    requestClosure: NetworkRequestClosure,
+    plugins: MoyaPlugins(),
+    trackInflights: false
+)
+```
+
+## 3. Custom your BaseResponse
 
 for example server base response
 ```
@@ -92,7 +102,7 @@ struct BaseResponse: Mappable {
 }
 ```
 
-## 3. Configure Mappable Models file
+## 4. Configure Mappable Models file
 
 you can use [JSONEXport](https://github.com/Ahmed-Ali/JSONExport) auto create
 ```
@@ -127,7 +137,7 @@ struct NodeModel: Mappable {
 
 ```
 
-## 4. Send a request and bind Model Type
+## 5. Send a request and bind Model Type
 
 request Object
 ```NetworkProvider.requestObject....```
