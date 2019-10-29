@@ -160,5 +160,5 @@ request Array Object
         }
 ```
 
-Implementation refer to [Networking.swift](https://github.com/CivelXu/Moya-ObjectMapper/blob/master/MoyaPractice/MoyaPractice/Network/Networking.swift)
+Implementation refer to [NetworkRequest.swift](https://github.com/CivelXu/Use-Moya-ObjectMapper/blob/master/MoyaPractice/MoyaPractice/Network/NetworkRequest.swift)
 
