@@ -10,7 +10,7 @@ import Moya
 import ObjectMapper
 
 extension MoyaProvider {
-    
+
     @discardableResult
     func requestObject<T: Mappable>(
         _ target: Target,
@@ -96,5 +96,5 @@ extension MoyaProvider {
                 }
         }
     }
-    
+
 }
