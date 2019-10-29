@@ -44,7 +44,6 @@ extension API: TargetType {
     }
 
     var sampleData: Data {
-        // swiftlint:disable:this force_unwrapping
          return "response: test data".data(using: String.Encoding.utf8)! // swiftlint:disable:this force_unwrapping
     }
 
