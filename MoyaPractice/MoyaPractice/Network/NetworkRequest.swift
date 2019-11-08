@@ -9,11 +9,16 @@
 import Moya
 import ObjectMapper
 
+struct NestedMapContext: MapContext {
+    var key = ""
+    var mapArray = false
+}
+
  extension TargetType {
 
     @discardableResult
     func requestObject<T: Mappable>(
-        atKeyPath: String = "",
+        nestedKeyPath: String = "",
         model: T.Type,
         callbackQueue: DispatchQueue? = .none,
         progressCallback: Moya.ProgressBlock? = nil,
@@ -26,7 +31,8 @@ import ObjectMapper
             progress: progressCallback) { result in
             switch result {
             case let .success(response):
-                guard let model = Mapper<NetworkResponse>(context: nil).map(JSONObject: try? response.mapJSON()) else {
+                let contenxt = NestedMapContext(key: nestedKeyPath, mapArray: false)
+                guard let model = Mapper<NetworkResponse<T>>(context: contenxt).map(JSONObject: try? response.mapJSON()) else {
                       error(MoyaError.jsonMapping(response))
                       return
                 }
@@ -35,17 +41,11 @@ import ObjectMapper
                     error(err)
                     return
                 }
-                let JSONObject: Any?
-                if atKeyPath.isEmpty {
-                    JSONObject = model.data
-                } else {
-                    JSONObject = (model.data as? NSDictionary)?.value(forKeyPath: atKeyPath)
+                guard let data = model.data else {
+                    error(MoyaError.jsonMapping(response))
+                    return
                 }
-                guard let object = Mapper<T>(context: nil).map(JSONObject: JSONObject) else {
-                  error(MoyaError.jsonMapping(response))
-                  return
-                }
-                success(object)
+                success(data)
             case let .failure(err):
                 error(err)
             }
@@ -54,7 +54,7 @@ import ObjectMapper
 
     @discardableResult
     func requestArray<T: Mappable>(
-        atKeyPath: String = "",
+        nestedKeyPath: String = "",
         model: T.Type,
         callbackQueue: DispatchQueue? = .none,
         progressCallback: Moya.ProgressBlock? = nil,
@@ -67,7 +67,8 @@ import ObjectMapper
             progress: progressCallback) { result in
                 switch result {
                 case let .success(response):
-                    guard let model = Mapper<NetworkResponse>(context: nil).map(JSONObject: try? response.mapJSON()) else {
+                    let contenxt = NestedMapContext(key: nestedKeyPath, mapArray: true)
+                    guard let model = Mapper<NetworkResponse<T>>(context: contenxt).map(JSONObject: try? response.mapJSON()) else {
                           error(MoyaError.jsonMapping(response))
                           return
                     }
@@ -76,19 +77,11 @@ import ObjectMapper
                         error(err)
                         return
                     }
-                    let JSONArray: [[String: Any]]?
-                    if atKeyPath.isEmpty {
-                        JSONArray = model.data as? [[String: Any]]
-                    } else {
-                        JSONArray = (model.data as? NSDictionary)?
-                            .value(forKeyPath: atKeyPath) as? [[String: Any]]
-                    }
-                    guard let array = JSONArray else {
+                    guard let datas = model.datas else {
                         error(MoyaError.jsonMapping(response))
                         return
                     }
-                    let objects = Mapper<T>(context: nil).mapArray(JSONArray: array)
-                    success(objects)
+                    success(datas)
                 case let .failure(err):
                     error(err)
                 }

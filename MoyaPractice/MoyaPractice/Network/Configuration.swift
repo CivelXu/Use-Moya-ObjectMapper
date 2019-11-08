@@ -8,11 +8,11 @@
 
 import Moya
 
-public extension Network {
+public struct Configuration {
 
-    struct Configuration {
+    public struct Request {
 
-        public static var `default`: Configuration = Configuration()
+        public static var `default`: Request = Request()
 
         public var addingHeaders: (TargetType) -> [String: String] = { _ in [:] }
 
@@ -22,16 +22,12 @@ public extension Network {
 
         public var plugins: [PluginType] = []
 
-        public init() {}
+        private init() {}
     }
 
-}
+    public struct Response {
 
-extension NetworkResponse {
-
-    struct Configuration {
-
-        public static var `default`: Configuration = Configuration()
+        public static var `default`: Response = Response()
 
         public var successResultCode: Int = 600
 
@@ -45,7 +41,8 @@ extension NetworkResponse {
 
         public var defaultErrorMessage: String = "An unknown error occurred"
 
-        public init() {}
+        private init() {}
+
     }
 
 }

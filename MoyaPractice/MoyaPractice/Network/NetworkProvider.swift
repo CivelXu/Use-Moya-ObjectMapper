@@ -11,20 +11,20 @@ import Moya
 open class Network {
 
     public static let `default`: Network = {
-        Network(configuration: Configuration.default)
+        Network(configuration: Configuration.Request.default)
     }()
 
     public let provider: MoyaProvider<MultiTarget>
 
-    public init(configuration: Configuration) {
+    public init(configuration: Configuration.Request) {
         provider = MoyaProvider(configuration: configuration)
     }
 
 }
 
-private extension MoyaProvider {
+extension MoyaProvider {
 
-    convenience init(configuration: Network.Configuration) {
+    convenience init(configuration: Configuration.Request) {
 
         let endpointClosure = { target -> Endpoint in
             MoyaProvider.defaultEndpointMapping(for: target)

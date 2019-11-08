@@ -1,31 +1,39 @@
 # How to use ?
 
 ## 1. Set Network Configuration
-```
+
 /// Configure plugins
-Network.Configuration.default.plugins = [NetworkLogPlugin]
+```
+Configuration.Request.default.plugins = [NetworkLogPlugin]
+```
+
         
 /// Configure timeoutInterval
-Network.Configuration.default.timeoutInterval = 60
+```
+Configuration.Request.default.timeoutInterval = 60
+```
 
 /// Configure common parameters etc.
-Network.Configuration.default.replacingTask = { target in
+```
+Configuration.Request.default.replacingTask = { target in
             switch target.task {
             case let .requestParameters(parameters, encoding):
-                let params: [String: Any] = ["token": "", "sign": "", "body": parameters]
-                return .requestParameters(parameters: params, encoding: encoding)
+                return .requestParameters(parameters: parameters, encoding: encoding)
             default:
                 return target.task
-    }
-}
+            }
+        }
+```
      
 /// Configure common headers etc.
-Network.Configuration.default.addingHeaders = { _ in
-        return ["SessionKey": "", "OrgID": ""]
+```
+Configuration.Request.default.addingHeaders = { _ in
+            return ["SessionKey": "",
+                    "OrgID": ""]
 }
 ```
 
-## 2. Set your custom API by moya way
+## 2. Set your custom API by Moya 
 
 ```
 enum API {
@@ -92,16 +100,15 @@ For example your server base response
   "error_message" : null
 }
 */
-
 ```
 You can configure like this
 
 ```
-NetworkResponse.Configuration.default.data = "data"
-NetworkResponse.Configuration.default.resultCode = "result_code"
-NetworkResponse.Configuration.default.resultMsg = "result_msg"
-NetworkResponse.Configuration.default.errorMessage = "error_message"
-NetworkResponse.Configuration.default.successResultCode = 600
+Configuration.Response.default.data = "data"
+Configuration.Response.default.resultCode = "result_code"
+Configuration.Response.default.resultMsg = "result_msg"
+Configuration.Response.default.errorMessage = "error_message"
+Configuration.Response.default.successResultCode = 600
 ```
 ## 4. Configure Response JSON data into swift object
 
@@ -137,20 +144,21 @@ struct NodeModel: Mappable {
 }
 
 ```
-
 ## 5. Send a request and bind model type
-Send Request like this ...
+
 - request Object
 ```API(Target).requestObject....```
 
 - request Array Object
 ```API(Target).requestArray...```
 
-- use atKeyPath mapping of Nested Objects
+- use nestedKeyPath mapping of Nested Objects, refer [ObjectMapper](https://github.com/tristanhimmelman/ObjectMapper#easy-mapping-of-nested-objects), you need ingnore NetworkResponse key("data.") when you use.
+
+Send Request like this ...
 
 ```
 API.getNodeList.requestArray(
-            atKeyPath: "datas",
+            nestedKeyPath: "datas",
             model: NodeModel.self,
             success: { (models) in
                 models.forEach {

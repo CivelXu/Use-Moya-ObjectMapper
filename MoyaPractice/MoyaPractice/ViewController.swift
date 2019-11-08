@@ -16,34 +16,33 @@ class ViewController: UIViewController {
         view.backgroundColor = .white
 
         #if DEBUG
-        Network.Configuration.default.plugins = [NetworkLogPlugin]
+        Configuration.Request.default.plugins = [NetworkLogPlugin]
         #else
         #endif
 
-        Network.Configuration.default.timeoutInterval = 60
+        Configuration.Request.default.timeoutInterval = 60
 
         // Configure common parameters etc.
-        Network.Configuration.default.replacingTask = { target in
+        Configuration.Request.default.replacingTask = { target in
             switch target.task {
             case let .requestParameters(parameters, encoding):
-                let params: [String: Any] = ["token": "", "sign": "", "body": parameters]
-                return .requestParameters(parameters: params, encoding: encoding)
+                return .requestParameters(parameters: parameters, encoding: encoding)
             default:
                 return target.task
             }
         }
 
         // Configure common headers etc.
-        Network.Configuration.default.addingHeaders = { _ in
+        Configuration.Request.default.addingHeaders = { _ in
             return ["SessionKey": "1e0c9920de3b168ece58f298af6740e7aa609a7b493f223c5d991c0da1c0ad83",
                     "OrgID": "e9ed44003980bf0cf7c73a354af9f3870890a388f3aaad7c76d0e5d74fcb3540"]
         }
 
-        NetworkResponse.Configuration.default.data = "data"
-        NetworkResponse.Configuration.default.resultCode = "result_code"
-        NetworkResponse.Configuration.default.resultMsg = "result_msg"
-        NetworkResponse.Configuration.default.errorMessage = "error_message"
-        NetworkResponse.Configuration.default.successResultCode = 600
+        Configuration.Response.default.data = "data"
+        Configuration.Response.default.resultCode = "result_code"
+        Configuration.Response.default.resultMsg = "result_msg"
+        Configuration.Response.default.errorMessage = "error_message"
+        Configuration.Response.default.successResultCode = 600
 
         login()
         getNodeList()
@@ -83,7 +82,7 @@ extension ViewController {
 
     private func getNodeList2() {
         API.getNodeList.requestArray(
-            atKeyPath: "datas",
+            nestedKeyPath: "datas",
             model: NodeModel.self,
             success: { (models) in
                 models.forEach {
@@ -96,7 +95,7 @@ extension ViewController {
 
     private func getNotifies() {
         API.getNotifies.requestObject(
-            atKeyPath: "separate_count",
+            nestedKeyPath: "separate_count",
             model: TestNum.self,
             success: { (model) in
                 print("$0.num ---- \(model.num)")
