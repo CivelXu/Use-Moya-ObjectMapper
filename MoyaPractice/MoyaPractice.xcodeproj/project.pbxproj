@@ -30,7 +30,7 @@
 		CEDFDACC23616A9500B4E477 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFDACB23616A9500B4E477 /* NetworkResponse.swift */; };
 		CEDFDACE23616DC800B4E477 /* NodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFDACD23616DC800B4E477 /* NodeModel.swift */; };
 		CEDFDAD0236177C200B4E477 /* NodeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFDACF236177C200B4E477 /* NodeModels.swift */; };
-		CEE6DED323756A2600203E0D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CEE6DED223756A2600203E0D /* README.md */; };
+		CEE6DED523756AD700203E0D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CEE6DED423756AD700203E0D /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,7 +84,7 @@
 		CEDFDACB23616A9500B4E477 /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		CEDFDACD23616DC800B4E477 /* NodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeModel.swift; sourceTree = "<group>"; };
 		CEDFDACF236177C200B4E477 /* NodeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeModels.swift; sourceTree = "<group>"; };
-		CEE6DED223756A2600203E0D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		CEE6DED423756AD700203E0D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F775DE9DB2DEC5305C15A258 /* Pods-MoyaPractice-MoyaPracticeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaPractice-MoyaPracticeUITests.debug.xcconfig"; path = "Target Support Files/Pods-MoyaPractice-MoyaPracticeUITests/Pods-MoyaPractice-MoyaPracticeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FEA0C76100E6AC518E6CC40E /* Pods_MoyaPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoyaPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -143,7 +143,7 @@
 		CE54DA7C236034E200FA9DDB = {
 			isa = PBXGroup;
 			children = (
-				CEE6DED223756A2600203E0D /* README.md */,
+				CEE6DED423756AD700203E0D /* README.md */,
 				CE54DA87236034E200FA9DDB /* MoyaPractice */,
 				CE54DA9E236034E500FA9DDB /* MoyaPracticeTests */,
 				CE54DAA9236034E500FA9DDB /* MoyaPracticeUITests */,
@@ -343,7 +343,7 @@
 			files = (
 				CE54DA95236034E400FA9DDB /* LaunchScreen.storyboard in Resources */,
 				CE54DA92236034E400FA9DDB /* Assets.xcassets in Resources */,
-				CEE6DED323756A2600203E0D /* README.md in Resources */,
+				CEE6DED523756AD700203E0D /* README.md in Resources */,
 				CE54DA90236034E200FA9DDB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
