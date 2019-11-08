@@ -1,6 +1,6 @@
 # How to use ?
 
-## 1. Set Network Configuration if you need
+## 1. Set common configuration if you need
 
 /// Configure plugins
 ```
@@ -110,7 +110,7 @@ Configuration.Response.default.resultMsg = "result_msg"
 Configuration.Response.default.errorMessage = "error_message"
 Configuration.Response.default.successResultCode = 600
 ```
-## 4. Create your Swift object file
+## 4. Create your Swift object（Mappable） file
 
 you can use [JSONEXport](https://github.com/Ahmed-Ali/JSONExport) auto convert by JSON
 ```
@@ -145,7 +145,7 @@ struct NodeModel: Mappable {
 }
 
 ```
-## 5. Send a request and bind model type
+## 5. Send a request and bind model（Mappable） type
 
 ### Request function
 
