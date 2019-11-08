@@ -17,15 +17,17 @@
 		CE54DA95236034E400FA9DDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE54DA93236034E400FA9DDB /* LaunchScreen.storyboard */; };
 		CE54DAA0236034E500FA9DDB /* MoyaPracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE54DA9F236034E500FA9DDB /* MoyaPracticeTests.swift */; };
 		CE54DAAB236034E500FA9DDB /* MoyaPracticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE54DAAA236034E500FA9DDB /* MoyaPracticeUITests.swift */; };
+		CE64F01A2375192200E89FDE /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64F0192375192200E89FDE /* NetworkProvider.swift */; };
+		CE64F01D23751F6500E89FDE /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64F01C23751F6500E89FDE /* Configuration.swift */; };
+		CE64F021237520BC00E89FDE /* NetworkLogPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64F020237520BC00E89FDE /* NetworkLogPlugin.swift */; };
 		CE79F5652361C18B007E2962 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79F5642361C18B007E2962 /* UserModel.swift */; };
 		CE79F5672361C1A1007E2962 /* OrgList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79F5662361C1A1007E2962 /* OrgList.swift */; };
 		CE79F5692361C5A7007E2962 /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79F5682361C5A7007E2962 /* GroupModel.swift */; };
 		CE79F56B2361C5C3007E2962 /* HeadImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79F56A2361C5C3007E2962 /* HeadImg.swift */; };
 		CE79F56D2361C5D8007E2962 /* Creator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79F56C2361C5D8007E2962 /* Creator.swift */; };
-		CE89879F2366E95F00375536 /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE89879E2366E95F00375536 /* APIProvider.swift */; };
 		CEDFDAC62360859600B4E477 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFDAC52360859600B4E477 /* NetworkRequest.swift */; };
 		CEDFDAC8236138D500B4E477 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFDAC7236138D500B4E477 /* API.swift */; };
-		CEDFDACC23616A9500B4E477 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFDACB23616A9500B4E477 /* BaseResponse.swift */; };
+		CEDFDACC23616A9500B4E477 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFDACB23616A9500B4E477 /* NetworkResponse.swift */; };
 		CEDFDACE23616DC800B4E477 /* NodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFDACD23616DC800B4E477 /* NodeModel.swift */; };
 		CEDFDAD0236177C200B4E477 /* NodeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFDACF236177C200B4E477 /* NodeModels.swift */; };
 /* End PBXBuildFile section */
@@ -68,15 +70,17 @@
 		CE54DAA6236034E500FA9DDB /* MoyaPracticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoyaPracticeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE54DAAA236034E500FA9DDB /* MoyaPracticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaPracticeUITests.swift; sourceTree = "<group>"; };
 		CE54DAAC236034E500FA9DDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE64F0192375192200E89FDE /* NetworkProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
+		CE64F01C23751F6500E89FDE /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		CE64F020237520BC00E89FDE /* NetworkLogPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogPlugin.swift; sourceTree = "<group>"; };
 		CE79F5642361C18B007E2962 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		CE79F5662361C1A1007E2962 /* OrgList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrgList.swift; sourceTree = "<group>"; };
 		CE79F5682361C5A7007E2962 /* GroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModel.swift; sourceTree = "<group>"; };
 		CE79F56A2361C5C3007E2962 /* HeadImg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadImg.swift; sourceTree = "<group>"; };
 		CE79F56C2361C5D8007E2962 /* Creator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creator.swift; sourceTree = "<group>"; };
-		CE89879E2366E95F00375536 /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		CEDFDAC52360859600B4E477 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		CEDFDAC7236138D500B4E477 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		CEDFDACB23616A9500B4E477 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
+		CEDFDACB23616A9500B4E477 /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		CEDFDACD23616DC800B4E477 /* NodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeModel.swift; sourceTree = "<group>"; };
 		CEDFDACF236177C200B4E477 /* NodeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeModels.swift; sourceTree = "<group>"; };
 		F775DE9DB2DEC5305C15A258 /* Pods-MoyaPractice-MoyaPracticeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaPractice-MoyaPracticeUITests.debug.xcconfig"; path = "Target Support Files/Pods-MoyaPractice-MoyaPracticeUITests/Pods-MoyaPractice-MoyaPracticeUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -159,8 +163,9 @@
 		CE54DA87236034E200FA9DDB /* MoyaPractice */ = {
 			isa = PBXGroup;
 			children = (
+				CE8987A02366EB7A00375536 /* Models */,
 				CE54DAED236058BF00FA9DDB /* Network */,
-				CE8987A02366EB7A00375536 /* models */,
+				CE64F01B23751DC900E89FDE /* DemoAPI */,
 				CE54DA88236034E200FA9DDB /* AppDelegate.swift */,
 				CE54DA8C236034E200FA9DDB /* ViewController.swift */,
 				CE54DA8E236034E200FA9DDB /* Main.storyboard */,
@@ -192,15 +197,24 @@
 		CE54DAED236058BF00FA9DDB /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				CEDFDAC7236138D500B4E477 /* API.swift */,
-				CE89879E2366E95F00375536 /* APIProvider.swift */,
-				CEDFDACB23616A9500B4E477 /* BaseResponse.swift */,
+				CE64F01C23751F6500E89FDE /* Configuration.swift */,
+				CE64F0192375192200E89FDE /* NetworkProvider.swift */,
 				CEDFDAC52360859600B4E477 /* NetworkRequest.swift */,
+				CEDFDACB23616A9500B4E477 /* NetworkResponse.swift */,
+				CE64F020237520BC00E89FDE /* NetworkLogPlugin.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
 		};
-		CE8987A02366EB7A00375536 /* models */ = {
+		CE64F01B23751DC900E89FDE /* DemoAPI */ = {
+			isa = PBXGroup;
+			children = (
+				CEDFDAC7236138D500B4E477 /* API.swift */,
+			);
+			path = DemoAPI;
+			sourceTree = "<group>";
+		};
+		CE8987A02366EB7A00375536 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				CEDFDACF236177C200B4E477 /* NodeModels.swift */,
@@ -211,7 +225,7 @@
 				CE79F56A2361C5C3007E2962 /* HeadImg.swift */,
 				CE79F56C2361C5D8007E2962 /* Creator.swift */,
 			);
-			path = models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -472,16 +486,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE79F56B2361C5C3007E2962 /* HeadImg.swift in Sources */,
+				CE64F01A2375192200E89FDE /* NetworkProvider.swift in Sources */,
+				CE64F01D23751F6500E89FDE /* Configuration.swift in Sources */,
 				CE54DA8D236034E200FA9DDB /* ViewController.swift in Sources */,
 				CE79F5692361C5A7007E2962 /* GroupModel.swift in Sources */,
 				CE79F5672361C1A1007E2962 /* OrgList.swift in Sources */,
-				CE89879F2366E95F00375536 /* APIProvider.swift in Sources */,
 				CE54DA89236034E200FA9DDB /* AppDelegate.swift in Sources */,
 				CE79F5652361C18B007E2962 /* UserModel.swift in Sources */,
-				CEDFDACC23616A9500B4E477 /* BaseResponse.swift in Sources */,
+				CEDFDACC23616A9500B4E477 /* NetworkResponse.swift in Sources */,
 				CEDFDACE23616DC800B4E477 /* NodeModel.swift in Sources */,
 				CE79F56D2361C5D8007E2962 /* Creator.swift in Sources */,
 				CEDFDAD0236177C200B4E477 /* NodeModels.swift in Sources */,
+				CE64F021237520BC00E89FDE /* NetworkLogPlugin.swift in Sources */,
 				CEDFDAC62360859600B4E477 /* NetworkRequest.swift in Sources */,
 				CEDFDAC8236138D500B4E477 /* API.swift in Sources */,
 			);

@@ -9,11 +9,10 @@
 import Moya
 import ObjectMapper
 
-extension MoyaProvider {
+ extension TargetType {
 
     @discardableResult
     func requestObject<T: Mappable>(
-        _ target: Target,
         atKeyPath: String = "",
         model: T.Type,
         callbackQueue: DispatchQueue? = .none,
@@ -21,13 +20,13 @@ extension MoyaProvider {
         success: @escaping (_ data: T) -> Void,
         error: @escaping (_ error: Error) -> Void) -> Cancellable? {
 
-        return request(
-            target,
+        return Network.default.provider.request(
+            .target(self),
             callbackQueue: callbackQueue,
             progress: progressCallback) { result in
             switch result {
             case let .success(response):
-                guard let model = Mapper<BaseResponse>(context: nil).map(JSONObject: try? response.mapJSON()) else {
+                guard let model = Mapper<NetworkResponse>(context: nil).map(JSONObject: try? response.mapJSON()) else {
                       error(MoyaError.jsonMapping(response))
                       return
                 }
@@ -55,7 +54,6 @@ extension MoyaProvider {
 
     @discardableResult
     func requestArray<T: Mappable>(
-        _ target: Target,
         atKeyPath: String = "",
         model: T.Type,
         callbackQueue: DispatchQueue? = .none,
@@ -63,13 +61,13 @@ extension MoyaProvider {
         success: @escaping (_ data: [T]) -> Void,
         error: @escaping (_ error: Error) -> Void) -> Cancellable? {
 
-        return request(
-            target,
+        return Network.default.provider.request(
+            .target(self),
             callbackQueue: callbackQueue,
             progress: progressCallback) { result in
                 switch result {
                 case let .success(response):
-                    guard let model = Mapper<BaseResponse>(context: nil).map(JSONObject: try? response.mapJSON()) else {
+                    guard let model = Mapper<NetworkResponse>(context: nil).map(JSONObject: try? response.mapJSON()) else {
                           error(MoyaError.jsonMapping(response))
                           return
                     }

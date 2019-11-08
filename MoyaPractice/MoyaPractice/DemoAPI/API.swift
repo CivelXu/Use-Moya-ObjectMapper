@@ -8,6 +8,8 @@
 
 import Moya
 
+let NetWorkBaseURLString = "https://iyuanben.com:30613"
+
 enum API {
     case getNodeList
     case login(email: String, password: String)
@@ -73,8 +75,7 @@ extension API: TargetType {
     }
 
     var headers: [String: String]? {
-        return ["SessionKey": "1e0c9920de3b168ece58f298af6740e7aa609a7b493f223c5d991c0da1c0ad83",
-                "OrgID": "e9ed44003980bf0cf7c73a354af9f3870890a388f3aaad7c76d0e5d74fcb3540"]
+        return nil
     }
 
 }

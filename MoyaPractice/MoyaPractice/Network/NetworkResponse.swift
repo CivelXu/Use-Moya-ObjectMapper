@@ -1,5 +1,5 @@
 //
-//  BaseResponse.swift
+//  NetworkResponse.swift
 //  MoyaPractice
 //
 //  Created by Civel Xu on 2019/10/24.
@@ -17,7 +17,7 @@ import ObjectMapper
 }
 */
 
-struct BaseResponse: Mappable {
+struct NetworkResponse: Mappable {
 
     var data: Any?
     var resultCode: Int = 0
@@ -27,25 +27,25 @@ struct BaseResponse: Mappable {
     init?(map: Map) { }
 
     mutating func mapping(map: Map) {
-        data <- map["data"]
-        errorMessage <- map["error_message"]
-        resultCode <- map["result_code"]
-        resultMsg <- map["result_msg"]
+        data <- map[Configuration.default.data]
+        errorMessage <- map[Configuration.default.errorMessage]
+        resultCode <- map[Configuration.default.resultCode]
+        resultMsg <- map[Configuration.default.resultMsg]
     }
 
 }
 
-extension  BaseResponse {
+extension NetworkResponse {
 
     var isSuccess: Bool {
-        return resultCode == NetworkSuccessCode
+        return resultCode == Configuration.default.successResultCode
     }
 
     var errorMsg: String {
         if let string = errorMessage, !string.isEmpty {
             return string
         } else {
-            return NetworkEmptyError
+            return Configuration.default.defaultErrorMessage
         }
     }
 

@@ -1,6 +1,31 @@
-# Pritice to use Moya and ObjectMapper
+# How to use ?
 
-## 1. Set your custom API info
+## 1. Set Network Configuration
+```
+/// Configure plugins
+Network.Configuration.default.plugins = [NetworkLogPlugin]
+        
+/// Configure timeoutInterval
+Network.Configuration.default.timeoutInterval = 60
+
+/// Configure common parameters etc.
+Network.Configuration.default.replacingTask = { target in
+            switch target.task {
+            case let .requestParameters(parameters, encoding):
+                let params: [String: Any] = ["token": "", "sign": "", "body": parameters]
+                return .requestParameters(parameters: params, encoding: encoding)
+            default:
+                return target.task
+    }
+}
+     
+/// Configure common headers etc.
+Network.Configuration.default.addingHeaders = { _ in
+        return ["SessionKey": "", "OrgID": ""]
+}
+```
+
+## 2. Set your custom API by moya way
 
 ```
 enum API {
@@ -54,22 +79,10 @@ extension API: TargetType {
 }
 
 ```
-## 2. Set your custom MoyaProvider
 
-your can configure your custom moya plugins here
+## 3. Configure your NetworkResponse Configuration
 
-```
-let NetworkProvider = MoyaProvider<API>(
-    endpointClosure: NetworkEndpointClosure,
-    requestClosure: NetworkRequestClosure,
-    plugins: MoyaPlugins(),
-    trackInflights: false
-)
-```
-
-## 3. Custom your Server BaseResponse
-
-for example server base response
+For example your server base response
 ```
 /*
 {
@@ -81,30 +94,16 @@ for example server base response
 */
 
 ```
-
-configure BaseResponse set for your server response
+You can configure like this
 
 ```
-struct BaseResponse: Mappable {
-
-    var data: Any?
-    var resultCode: Int = 0
-    var resultMsg: String = ""
-    var errorMessage: String?
-
-    init?(map: Map) { }
-
-    mutating func mapping(map: Map) {
-        data <- map["data"]
-        errorMessage <- map["error_message"]
-        resultCode <- map["result_code"]
-        resultMsg <- map["result_msg"]
-    }
-
-}
+NetworkResponse.Configuration.default.data = "data"
+NetworkResponse.Configuration.default.resultCode = "result_code"
+NetworkResponse.Configuration.default.resultMsg = "result_msg"
+NetworkResponse.Configuration.default.errorMessage = "error_message"
+NetworkResponse.Configuration.default.successResultCode = 600
 ```
-
-## 4. Configure Your mappable model file
+## 4. Configure Response JSON data into swift object
 
 you can use [JSONEXport](https://github.com/Ahmed-Ali/JSONExport) auto create
 ```
@@ -140,15 +139,17 @@ struct NodeModel: Mappable {
 ```
 
 ## 5. Send a request and bind model type
+Send Request like this ...
+- request Object
+```API(Target).requestObject....```
 
-request Object
-```NetworkProvider.requestObject....```
-request Array Object
-```NetworkProvider.requestArray...```
+- request Array Object
+```API(Target).requestArray...```
+
+- use atKeyPath mapping of Nested Objects
 
 ```
-        NetworkProvider.requestArray(
-            .getNodeList,
+API.getNodeList.requestArray(
             atKeyPath: "datas",
             model: NodeModel.self,
             success: { (models) in
