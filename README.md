@@ -1,6 +1,6 @@
 # How to use ?
 
-## 1. Set Network Configuration
+## 1. Set Network Configuration if you need
 
 /// Configure plugins
 ```
@@ -33,7 +33,7 @@ Configuration.Request.default.addingHeaders = { _ in
 }
 ```
 
-## 2. Set your custom API by Moya 
+## 2. Set your custom API by Moya style
 
 ```
 enum API {
@@ -88,7 +88,7 @@ extension API: TargetType {
 
 ```
 
-## 3. Configure your NetworkResponse Configuration
+## 3. set your server response configuration
 
 For example your server base response
 ```
@@ -110,9 +110,9 @@ Configuration.Response.default.resultMsg = "result_msg"
 Configuration.Response.default.errorMessage = "error_message"
 Configuration.Response.default.successResultCode = 600
 ```
-## 4. Configure Response JSON data into swift object
+## 4. Create your Swift object file
 
-you can use [JSONEXport](https://github.com/Ahmed-Ali/JSONExport) auto create
+you can use [JSONEXport](https://github.com/Ahmed-Ali/JSONExport) auto convert by JSON
 ```
 import ObjectMapper
 
@@ -127,6 +127,7 @@ struct NodeModel: Mappable {
     var miksUpdatedAt: Int?
     var nodeAddress: String?
     var update: Int?
+
     init?(map: Map) { }
 
     mutating func mapping(map: Map) {
@@ -146,13 +147,17 @@ struct NodeModel: Mappable {
 ```
 ## 5. Send a request and bind model type
 
+### Request function
+
 - request Object
 ```API(Target).requestObject....```
 
 - request Array Object
 ```API(Target).requestArray...```
 
-- use nestedKeyPath mapping of Nested Objects, refer [ObjectMapper](https://github.com/tristanhimmelman/ObjectMapper#easy-mapping-of-nested-objects), you need ingnore NetworkResponse key("data.") when you use.
+Tip: 
+you can use nestedKeyPath mapping of Nested Objects, refer to [ObjectMapper](https://github.com/tristanhimmelman/ObjectMapper#easy-mapping-of-nested-objects) feature，
+But you need ingnore the prefix NetworkResponse data( "data.") key.
 
 Send Request like this ...
 
