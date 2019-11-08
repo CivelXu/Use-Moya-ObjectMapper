@@ -166,8 +166,8 @@
 		CE54DA87236034E200FA9DDB /* MoyaPractice */ = {
 			isa = PBXGroup;
 			children = (
-				CE8987A02366EB7A00375536 /* Models */,
 				CE54DAED236058BF00FA9DDB /* Network */,
+				CE8987A02366EB7A00375536 /* Models */,
 				CE64F01B23751DC900E89FDE /* DemoAPI */,
 				CE54DA88236034E200FA9DDB /* AppDelegate.swift */,
 				CE54DA8C236034E200FA9DDB /* ViewController.swift */,
