@@ -25,7 +25,7 @@ Network.Configuration.default.addingHeaders = { _ in
 }
 ```
 
-## 2. Set your custom API by moya way
+## 2. Set your custom API by Moya way
 
 ```
 enum API {
@@ -139,7 +139,7 @@ struct NodeModel: Mappable {
 ```
 
 ## 5. Send a request and bind model type
-Send Request like this ...
+
 - request Object
 ```API(Target).requestObject....```
 
@@ -147,6 +147,8 @@ Send Request like this ...
 ```API(Target).requestArray...```
 
 - use atKeyPath mapping of Nested Objects
+
+Send Request like this ...
 
 ```
 API.getNodeList.requestArray(
