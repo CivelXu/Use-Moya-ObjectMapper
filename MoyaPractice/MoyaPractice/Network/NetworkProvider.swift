@@ -8,7 +8,7 @@
 
 import Moya
 
-open class Network {
+public class Network {
 
     public static let `default`: Network = {
         Network(configuration: Configuration.Request.default)
@@ -22,7 +22,7 @@ open class Network {
 
 }
 
-extension MoyaProvider {
+public extension MoyaProvider {
 
     convenience init(configuration: Configuration.Request) {
 

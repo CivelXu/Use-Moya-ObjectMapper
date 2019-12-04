@@ -8,7 +8,7 @@
 
 import Moya
 
-let NetworkLogPlugin = NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)
+public let NetworkLogPlugin = NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)
 
 private func JSONResponseDataFormatter(_ data: Data) -> Data {
     do {

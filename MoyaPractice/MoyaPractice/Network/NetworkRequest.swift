@@ -11,10 +11,10 @@ import ObjectMapper
 
 struct NestedMapContext: MapContext {
     var key = ""
-    var mapArray = false
+    var mapArray: Bool
 }
 
- extension TargetType {
+public extension TargetType {
 
     @discardableResult
     func requestObject<T: Mappable>(

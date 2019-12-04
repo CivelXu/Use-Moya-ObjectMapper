@@ -17,7 +17,7 @@ import ObjectMapper
 }
 */
 
-struct NetworkResponse<T: Mappable>: Mappable {
+public struct NetworkResponse<T: Mappable>: Mappable {
 
     var data: T?
     var datas: [T]?
@@ -25,9 +25,9 @@ struct NetworkResponse<T: Mappable>: Mappable {
     var resultMsg: String = ""
     var errorMessage: String?
 
-    init?(map: Map) { }
+    public init?(map: Map) { }
 
-    mutating func mapping(map: Map) {
+    mutating public func mapping(map: Map) {
         var dataKey = Configuration.Response.default.data
         var mapArray = false
         if let context = map.context as? NestedMapContext {
@@ -49,7 +49,7 @@ struct NetworkResponse<T: Mappable>: Mappable {
 
 }
 
-extension NetworkResponse {
+public extension NetworkResponse {
 
     var isSuccess: Bool {
         return resultCode == Configuration.Response.default.successResultCode
