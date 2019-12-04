@@ -31,7 +31,7 @@ struct NestedMapContext: MapContext {
             progress: progressCallback) { result in
             switch result {
             case let .success(response):
-                let contenxt = NestedMapContext(key: nestedKeyPath, mapArray: false)
+                let contenxt = nestedKeyPath.isEmpty ? nil : NestedMapContext(key: nestedKeyPath, mapArray: false)
                 guard let model = Mapper<NetworkResponse<T>>(context: contenxt).map(JSONObject: try? response.mapJSON()) else {
                       error(MoyaError.jsonMapping(response))
                       return
@@ -67,7 +67,7 @@ struct NestedMapContext: MapContext {
             progress: progressCallback) { result in
                 switch result {
                 case let .success(response):
-                    let contenxt = NestedMapContext(key: nestedKeyPath, mapArray: true)
+                    let contenxt = nestedKeyPath.isEmpty ? nil : NestedMapContext(key: nestedKeyPath, mapArray: true)
                     guard let model = Mapper<NetworkResponse<T>>(context: contenxt).map(JSONObject: try? response.mapJSON()) else {
                           error(MoyaError.jsonMapping(response))
                           return
