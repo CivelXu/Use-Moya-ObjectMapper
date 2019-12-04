@@ -167,8 +167,8 @@
 			isa = PBXGroup;
 			children = (
 				CE54DAED236058BF00FA9DDB /* Network */,
-				CE8987A02366EB7A00375536 /* Models */,
 				CE64F01B23751DC900E89FDE /* DemoAPI */,
+				CE8987A02366EB7A00375536 /* DemoModels */,
 				CE54DA88236034E200FA9DDB /* AppDelegate.swift */,
 				CE54DA8C236034E200FA9DDB /* ViewController.swift */,
 				CE54DA8E236034E200FA9DDB /* Main.storyboard */,
@@ -217,7 +217,7 @@
 			path = DemoAPI;
 			sourceTree = "<group>";
 		};
-		CE8987A02366EB7A00375536 /* Models */ = {
+		CE8987A02366EB7A00375536 /* DemoModels */ = {
 			isa = PBXGroup;
 			children = (
 				CEDFDACF236177C200B4E477 /* NodeModels.swift */,
@@ -228,7 +228,7 @@
 				CE79F56A2361C5C3007E2962 /* HeadImg.swift */,
 				CE79F56C2361C5D8007E2962 /* Creator.swift */,
 			);
-			path = Models;
+			path = DemoModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
