@@ -28,20 +28,18 @@ public struct NetworkResponse<T: Mappable>: Mappable {
     public init?(map: Map) { }
 
     mutating public func mapping(map: Map) {
-        var dataKey = Configuration.Response.default.data
-        var mapArray = false
+
         if let context = map.context as? NestedMapContext {
             let key = context.key
-            if !key.isEmpty {
-                dataKey = dataKey + "." + key
+            var dataKey = Configuration.Response.default.data
+            if !key.isEmpty { dataKey = dataKey + "." + key }
+            if context.mapArray {
+                datas <- map[dataKey]
+            } else {
+                data <- map[dataKey]
             }
-            mapArray = context.mapArray
         }
-        if mapArray {
-            datas <- map[dataKey]
-        } else {
-            data <- map[dataKey]
-        }
+
         errorMessage <- map[Configuration.Response.default.errorMessage]
         resultCode <- map[Configuration.Response.default.resultCode]
         resultMsg <- map[Configuration.Response.default.resultMsg]
