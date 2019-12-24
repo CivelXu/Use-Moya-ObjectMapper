@@ -184,6 +184,7 @@ Also We have RxSwift Version
                     
                 }
             )
-``
+```
+
 Implementation refer to [NetworkRequest.swift](https://github.com/CivelXu/Use-Moya-ObjectMapper/blob/master/MoyaPractice/MoyaPractice/Network/NetworkRequest.swift)
 
