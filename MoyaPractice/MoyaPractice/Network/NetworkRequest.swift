@@ -31,21 +31,23 @@ public extension TargetType {
             progress: progressCallback) { result in
             switch result {
             case let .success(response):
-                let contenxt = NestedMapContext(key: nestedKeyPath, mapArray: false)
-                guard let model = Mapper<NetworkResponse<T>>(context: contenxt).map(JSONObject: try? response.mapJSON()) else {
-                      error(MoyaError.jsonMapping(response))
-                      return
+                DispatchQueue.global().async {
+                    let contenxt = NestedMapContext(key: nestedKeyPath, mapArray: false)
+                    guard let model = Mapper<NetworkResponse<T>>(context: contenxt).map(JSONObject: try? response.mapJSON()) else {
+                        DispatchQueue.main.async { error(MoyaError.jsonMapping(response)) }
+                          return
+                    }
+                    guard model.isSuccess else {
+                        let err = NSError(domain: model.errorMsg, code: model.resultCode, userInfo: nil)
+                        DispatchQueue.main.async { error(err) }
+                        return
+                    }
+                    guard let data = model.data else {
+                        DispatchQueue.main.async { error(MoyaError.jsonMapping(response)) }
+                        return
+                    }
+                    DispatchQueue.main.async { success(data) }
                 }
-                guard model.isSuccess else {
-                    let err = NSError(domain: model.errorMsg, code: model.resultCode, userInfo: nil)
-                    error(err)
-                    return
-                }
-                guard let data = model.data else {
-                    error(MoyaError.jsonMapping(response))
-                    return
-                }
-                success(data)
             case let .failure(err):
                 error(err)
             }
@@ -67,21 +69,23 @@ public extension TargetType {
             progress: progressCallback) { result in
                 switch result {
                 case let .success(response):
-                    let contenxt = NestedMapContext(key: nestedKeyPath, mapArray: true)
-                    guard let model = Mapper<NetworkResponse<T>>(context: contenxt).map(JSONObject: try? response.mapJSON()) else {
-                          error(MoyaError.jsonMapping(response))
-                          return
+                    DispatchQueue.global().async {
+                        let contenxt = NestedMapContext(key: nestedKeyPath, mapArray: true)
+                        guard let model = Mapper<NetworkResponse<T>>(context: contenxt).map(JSONObject: try? response.mapJSON()) else {
+                            DispatchQueue.main.async { error(MoyaError.jsonMapping(response)) }
+                              return
+                        }
+                        guard model.isSuccess else {
+                            let err = NSError(domain: model.errorMsg, code: model.resultCode, userInfo: nil)
+                            DispatchQueue.main.async { error(err) }
+                            return
+                        }
+                        guard let datas = model.datas else {
+                            DispatchQueue.main.async { error(MoyaError.jsonMapping(response)) }
+                            return
+                        }
+                        DispatchQueue.main.async { success(datas) }
                     }
-                    guard model.isSuccess else {
-                        let err = NSError(domain: model.errorMsg, code: model.resultCode, userInfo: nil)
-                        error(err)
-                        return
-                    }
-                    guard let datas = model.datas else {
-                        error(MoyaError.jsonMapping(response))
-                        return
-                    }
-                    success(datas)
                 case let .failure(err):
                     error(err)
                 }

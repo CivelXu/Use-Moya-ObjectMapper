@@ -31,6 +31,7 @@
 		CEDFDACE23616DC800B4E477 /* NodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFDACD23616DC800B4E477 /* NodeModel.swift */; };
 		CEDFDAD0236177C200B4E477 /* NodeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFDACF236177C200B4E477 /* NodeModels.swift */; };
 		CEE6DED523756AD700203E0D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CEE6DED423756AD700203E0D /* README.md */; };
+		CEFDF0C123B3500700D5134E /* NetworkRequest+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFDF0C023B3500700D5134E /* NetworkRequest+Rx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		CEDFDACD23616DC800B4E477 /* NodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeModel.swift; sourceTree = "<group>"; };
 		CEDFDACF236177C200B4E477 /* NodeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeModels.swift; sourceTree = "<group>"; };
 		CEE6DED423756AD700203E0D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		CEFDF0C023B3500700D5134E /* NetworkRequest+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkRequest+Rx.swift"; sourceTree = "<group>"; };
 		F775DE9DB2DEC5305C15A258 /* Pods-MoyaPractice-MoyaPracticeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaPractice-MoyaPracticeUITests.debug.xcconfig"; path = "Target Support Files/Pods-MoyaPractice-MoyaPracticeUITests/Pods-MoyaPractice-MoyaPracticeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FEA0C76100E6AC518E6CC40E /* Pods_MoyaPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoyaPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -204,6 +206,7 @@
 				CE64F0192375192200E89FDE /* NetworkProvider.swift */,
 				CEDFDAC52360859600B4E477 /* NetworkRequest.swift */,
 				CEDFDACB23616A9500B4E477 /* NetworkResponse.swift */,
+				CEFDF0C023B3500700D5134E /* NetworkRequest+Rx.swift */,
 				CE64F020237520BC00E89FDE /* NetworkLogPlugin.swift */,
 			);
 			path = Network;
@@ -499,6 +502,7 @@
 				CE79F5652361C18B007E2962 /* UserModel.swift in Sources */,
 				CEDFDACC23616A9500B4E477 /* NetworkResponse.swift in Sources */,
 				CEDFDACE23616DC800B4E477 /* NodeModel.swift in Sources */,
+				CEFDF0C123B3500700D5134E /* NetworkRequest+Rx.swift in Sources */,
 				CE79F56D2361C5D8007E2962 /* Creator.swift in Sources */,
 				CEDFDAD0236177C200B4E477 /* NodeModels.swift in Sources */,
 				CE64F021237520BC00E89FDE /* NetworkLogPlugin.swift in Sources */,
