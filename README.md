@@ -175,16 +175,14 @@ API.getNodeList.requestArray(
 ```
 
 Also We have RxSwift Version
-```
-            API.getMembers(page: 0)
-                .requestArray(model: Member.self)
-                .subscribe(onNext: { members in
-                    
-                }, onError: { error in
-                    
-                }
-            )
-```
+Observable
+`func requestObservableObject<T: Mappable>(model: T.Type) -> Observable<(T)>`
+`func requestObservableArray<T: Mappable>(model: T.Type) -> Observable<([T])>`
+Single
+`func requestSingleObject<T: Mappable>(model: T.Type) -> Observable<(T)>`
+`func requestSingleObject<T: Mappable>(model: T.Type) -> Observable<([T])>`
+Progress
+`func requestWithProgress() -> Observable<ProgressResponse>`
 
 Implementation refer to [NetworkRequest.swift](https://github.com/CivelXu/Use-Moya-ObjectMapper/blob/master/MoyaPractice/MoyaPractice/Network/NetworkRequest.swift)
 

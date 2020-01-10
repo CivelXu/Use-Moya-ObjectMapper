@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import RxSwift
 
 class ViewController: UIViewController {
+
+    var disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,7 +19,7 @@ class ViewController: UIViewController {
         view.backgroundColor = .white
 
         #if DEBUG
-        Configuration.Request.default.plugins = [NetworkLogPlugin]
+        Configuration.Request.default.plugins = [NetworkLogger()]
         #else
         #endif
 
@@ -50,6 +53,9 @@ class ViewController: UIViewController {
         getNotifies()
         getUserGroups()
 
+        /// Rx
+        getUserGroupsRequestObservableArray()
+        getUserGroupsRequestSingleArray()
     }
 
 }
@@ -120,4 +126,39 @@ extension ViewController {
             debugPrint(error.localizedDescription)
         }
     }
+
+    private func getUserGroupsRequestObservableArray() {
+        let now = NSDate()
+        let timeInterval: TimeInterval = now.timeIntervalSince1970
+        let timeStamp = Int(timeInterval) * 1000 + 1000
+        API.getUserGroups(start: timeStamp, page: 0, type: 2)
+            .requestObservableArray(model: GroupModel.self)
+            .subscribe(onNext: { (groupModels) in
+                groupModels.forEach {
+                    debugPrint($0.name ?? "")
+                    debugPrint($0.creator?.name ?? "")
+                }
+            }, onError: { (error) in
+                debugPrint(error.localizedDescription)
+            })
+            .disposed(by: disposeBag)
+    }
+
+    private func getUserGroupsRequestSingleArray() {
+        let now = NSDate()
+        let timeInterval: TimeInterval = now.timeIntervalSince1970
+        let timeStamp = Int(timeInterval) * 1000 + 1000
+        API.getUserGroups(start: timeStamp, page: 0, type: 2)
+            .requestSingleArray(model: GroupModel.self)
+            .subscribe(onSuccess: { groupModels in
+                groupModels.forEach {
+                    debugPrint($0.name ?? "")
+                    debugPrint($0.creator?.name ?? "")
+                }
+            }) { (error) in
+                debugPrint(error.localizedDescription)
+        }
+        .disposed(by: disposeBag)
+    }
+
 }

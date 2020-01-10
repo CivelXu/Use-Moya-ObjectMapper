@@ -9,7 +9,9 @@ target 'MoyaPractice' do
 
   # Pods for MoyaPractice
 
-  pod 'Moya'
+  # pod 'Moya'
+  pod 'Moya/RxSwift'
+  pod 'RxSwift'
   pod 'ObjectMapper'
   
   target 'MoyaPracticeTests' do

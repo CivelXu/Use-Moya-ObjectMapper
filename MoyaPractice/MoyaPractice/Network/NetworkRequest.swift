@@ -15,7 +15,6 @@ struct NestedMapContext: MapContext {
 }
 
 public extension TargetType {
-
     @discardableResult
     func requestObject<T: Mappable>(
         nestedKeyPath: String = "",
@@ -62,7 +61,6 @@ public extension TargetType {
         progressCallback: Moya.ProgressBlock? = nil,
         success: @escaping (_ data: [T]) -> Void,
         error: @escaping (_ error: Error) -> Void) -> Cancellable? {
-
         return Network.default.provider.request(
             .target(self),
             callbackQueue: callbackQueue,
@@ -91,5 +89,4 @@ public extension TargetType {
                 }
         }
     }
-
 }

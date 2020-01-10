@@ -25,13 +25,14 @@
 		CE79F5692361C5A7007E2962 /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79F5682361C5A7007E2962 /* GroupModel.swift */; };
 		CE79F56B2361C5C3007E2962 /* HeadImg.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79F56A2361C5C3007E2962 /* HeadImg.swift */; };
 		CE79F56D2361C5D8007E2962 /* Creator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79F56C2361C5D8007E2962 /* Creator.swift */; };
+		CEDD568723C816B300430943 /* Single+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD568623C816B300430943 /* Single+Request.swift */; };
 		CEDFDAC62360859600B4E477 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFDAC52360859600B4E477 /* NetworkRequest.swift */; };
 		CEDFDAC8236138D500B4E477 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFDAC7236138D500B4E477 /* API.swift */; };
 		CEDFDACC23616A9500B4E477 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFDACB23616A9500B4E477 /* NetworkResponse.swift */; };
 		CEDFDACE23616DC800B4E477 /* NodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFDACD23616DC800B4E477 /* NodeModel.swift */; };
 		CEDFDAD0236177C200B4E477 /* NodeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDFDACF236177C200B4E477 /* NodeModels.swift */; };
 		CEE6DED523756AD700203E0D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CEE6DED423756AD700203E0D /* README.md */; };
-		CEFDF0C123B3500700D5134E /* NetworkRequest+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFDF0C023B3500700D5134E /* NetworkRequest+Rx.swift */; };
+		CEFDF0C123B3500700D5134E /* Observable+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFDF0C023B3500700D5134E /* Observable+Request.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,13 +81,14 @@
 		CE79F5682361C5A7007E2962 /* GroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModel.swift; sourceTree = "<group>"; };
 		CE79F56A2361C5C3007E2962 /* HeadImg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadImg.swift; sourceTree = "<group>"; };
 		CE79F56C2361C5D8007E2962 /* Creator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creator.swift; sourceTree = "<group>"; };
+		CEDD568623C816B300430943 /* Single+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Single+Request.swift"; sourceTree = "<group>"; };
 		CEDFDAC52360859600B4E477 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		CEDFDAC7236138D500B4E477 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CEDFDACB23616A9500B4E477 /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
 		CEDFDACD23616DC800B4E477 /* NodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeModel.swift; sourceTree = "<group>"; };
 		CEDFDACF236177C200B4E477 /* NodeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeModels.swift; sourceTree = "<group>"; };
 		CEE6DED423756AD700203E0D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		CEFDF0C023B3500700D5134E /* NetworkRequest+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkRequest+Rx.swift"; sourceTree = "<group>"; };
+		CEFDF0C023B3500700D5134E /* Observable+Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Request.swift"; sourceTree = "<group>"; };
 		F775DE9DB2DEC5305C15A258 /* Pods-MoyaPractice-MoyaPracticeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaPractice-MoyaPracticeUITests.debug.xcconfig"; path = "Target Support Files/Pods-MoyaPractice-MoyaPracticeUITests/Pods-MoyaPractice-MoyaPracticeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FEA0C76100E6AC518E6CC40E /* Pods_MoyaPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoyaPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -202,11 +204,11 @@
 		CE54DAED236058BF00FA9DDB /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				CEDD568823C81E4700430943 /* Rx */,
 				CE64F01C23751F6500E89FDE /* Configuration.swift */,
 				CE64F0192375192200E89FDE /* NetworkProvider.swift */,
 				CEDFDAC52360859600B4E477 /* NetworkRequest.swift */,
 				CEDFDACB23616A9500B4E477 /* NetworkResponse.swift */,
-				CEFDF0C023B3500700D5134E /* NetworkRequest+Rx.swift */,
 				CE64F020237520BC00E89FDE /* NetworkLogPlugin.swift */,
 			);
 			path = Network;
@@ -232,6 +234,15 @@
 				CE79F56C2361C5D8007E2962 /* Creator.swift */,
 			);
 			path = DemoModels;
+			sourceTree = "<group>";
+		};
+		CEDD568823C81E4700430943 /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				CEFDF0C023B3500700D5134E /* Observable+Request.swift */,
+				CEDD568623C816B300430943 /* Single+Request.swift */,
+			);
+			path = Rx;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -502,8 +513,9 @@
 				CE79F5652361C18B007E2962 /* UserModel.swift in Sources */,
 				CEDFDACC23616A9500B4E477 /* NetworkResponse.swift in Sources */,
 				CEDFDACE23616DC800B4E477 /* NodeModel.swift in Sources */,
-				CEFDF0C123B3500700D5134E /* NetworkRequest+Rx.swift in Sources */,
+				CEFDF0C123B3500700D5134E /* Observable+Request.swift in Sources */,
 				CE79F56D2361C5D8007E2962 /* Creator.swift in Sources */,
+				CEDD568723C816B300430943 /* Single+Request.swift in Sources */,
 				CEDFDAD0236177C200B4E477 /* NodeModels.swift in Sources */,
 				CE64F021237520BC00E89FDE /* NetworkLogPlugin.swift in Sources */,
 				CEDFDAC62360859600B4E477 /* NetworkRequest.swift in Sources */,

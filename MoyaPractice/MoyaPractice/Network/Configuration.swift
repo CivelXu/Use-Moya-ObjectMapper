@@ -20,7 +20,7 @@ public struct Configuration {
 
         public var timeoutInterval: TimeInterval = 30
 
-        public var plugins: [PluginType] = [NetworkLogPlugin]
+        public var plugins: [PluginType] = [NetworkLogger()]
 
         private init() {}
     }
