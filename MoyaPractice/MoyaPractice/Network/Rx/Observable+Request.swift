@@ -82,8 +82,33 @@ public extension TargetType {
         }
     }
 
-    func requestWithProgress() -> Observable<ProgressResponse> {
-        return Network.default.provider.rx.requestWithProgress(.target(self))
+    /// Designated request-making method with progress.
+    func requestWithProgress(callbackQueue: DispatchQueue? = nil) -> Observable<ProgressResponse> {
+        let progressBlock: (AnyObserver) -> (ProgressResponse) -> Void = { observer in
+            return { progress in
+                observer.onNext(progress)
+            }
+        }
+        let response: Observable<ProgressResponse> = Observable.create { observer in
+            let cancellableToken = Network.default.provider.request(.target(self), callbackQueue: callbackQueue, progress: progressBlock(observer)) { result in
+                switch result {
+                case .success:
+                    observer.onCompleted()
+                case let .failure(error):
+                    observer.onError(error)
+                }
+            }
+
+            return Disposables.create {
+                cancellableToken.cancel()
+            }
+        }
+        // Accumulate all progress and combine them when the result comes
+        return response.scan(ProgressResponse()) { last, progress in
+            let progressObject = progress.progressObject ?? last.progressObject
+            let response = progress.response ?? last.response
+            return ProgressResponse(progress: progressObject, response: response)
+        }
     }
 
 }
