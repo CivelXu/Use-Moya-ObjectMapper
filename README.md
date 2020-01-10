@@ -185,7 +185,7 @@ Also We have RxSwift Version
 
 `func requestSingleObject<T: Mappable>(model: T.Type) -> Observable<(T)>`
 
-`func requestSingleObject<T: Mappable>(model: T.Type) -> Observable<([T])>`
+`func requestSingleArray<T: Mappable>(model: T.Type) -> Observable<([T])>`
 - Progress
 
 `func requestWithProgress() -> Observable<ProgressResponse>`
